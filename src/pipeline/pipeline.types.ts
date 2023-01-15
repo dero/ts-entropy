@@ -1,4 +1,7 @@
-import { ParseError, ParseResult } from './parseResult/parseResult.types.js';
+import type {
+  ParseError,
+  ParseResult,
+} from './parseResult/parseResult.types.js';
 
 export type EntropyPipeline<
   RD,
@@ -31,5 +34,6 @@ export type EntropyPipeline<
       L2R & { [key in NewL]: NewR | undefined }
     >);
 
-  render: <RenderType>(renderer: (renderData: L2R) => RenderType) => RenderType;
+  render: (() => L2R) &
+    (<RenderType>(renderer: (renderData: L2R) => RenderType) => RenderType);
 };

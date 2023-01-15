@@ -1,6 +1,6 @@
 export type ParseError = {
   message: string;
-  name?: string;
+  code?: string;
   cause?: unknown;
   context?: Record<string, unknown>;
 };

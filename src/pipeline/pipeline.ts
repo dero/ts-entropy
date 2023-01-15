@@ -1,6 +1,9 @@
-import { EntropyOptions } from '../types.js';
+import type { EntropyOptions } from '../types.js';
 import { getParseResult } from './parseResult/getParseResult.js';
-import { ParseError, ParseResult } from './parseResult/parseResult.types.js';
+import type {
+  ParseError,
+  ParseResult,
+} from './parseResult/parseResult.types.js';
 import type { EntropyPipeline } from './pipeline.types.js';
 
 export function createEntropyPipeline<
@@ -72,10 +75,16 @@ export function createEntropyPipeline<
     );
   }
 
+  function render(): L2R;
   function render<RenderType>(
     renderer: (renderedData: L2R, parseds: L2P) => RenderType
-  ): RenderType {
-    return renderer(labelToRendereds, labelToParseds);
+  ): RenderType;
+  function render<RenderType>(
+    renderer?: (renderedData: L2R, parseds: L2P) => RenderType
+  ): RenderType | L2R {
+    return renderer
+      ? renderer(labelToRendereds, labelToParseds)
+      : labelToRendereds;
   }
 
   return {

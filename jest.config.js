@@ -1,15 +1,12 @@
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  testMatch: ['**/test/**/*.spec.ts'],
-  collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts',
-    '!<rootDir>/src/types/**/*.ts',
-  ],
-  globals: {
-    'ts-jest': {
-      diagnostics: false,
-      isolatedModules: true,
-    },
+/**  @type {import('@jest/types').Config.ProjectConfig} */
+const config = {
+  transform: {
+    '\\.[jt]sx?$': ['ts-jest', { useESM: true }],
   },
+  moduleNameMapper: {
+    '(.+)\\.js': '$1',
+  },
+  extensionsToTreatAsEsm: ['.ts'],
 };
+
+export default config;

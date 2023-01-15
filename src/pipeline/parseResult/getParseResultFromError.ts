@@ -1,6 +1,6 @@
 import { isObject } from '../../utils/typeGuards/isObject.js';
 import { isParseError } from '../../utils/typeGuards/isParseError.js';
-import { ParseError, ParseResult } from './parseResult.types.js';
+import type { ParseError, ParseResult } from './parseResult.types.js';
 
 export function getParseResultFromError(
   e: unknown

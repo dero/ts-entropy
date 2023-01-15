@@ -1,6 +1,6 @@
 import { getParseResultFromError } from './getParseResultFromError.js';
 import { isParseResult } from '../../utils/typeGuards/isParseResult.js';
-import { ParseError, ParseResult } from './parseResult.types.js';
+import type { ParseError, ParseResult } from './parseResult.types.js';
 
 export function getParseResult<NewPD>(
   parseFunction: () => NewPD | ParseResult<NewPD, ParseError>
