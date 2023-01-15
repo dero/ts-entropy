@@ -117,3 +117,9 @@ dist
 
 # Compiled code
 lib/
+
+# Temp code
+/temp
+
+# VSCode
+.vscode/
