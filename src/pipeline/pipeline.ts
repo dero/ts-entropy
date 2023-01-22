@@ -56,7 +56,7 @@ export function createEntropyPipeline<
 
     if (parseResult.success) {
       renderResult = renderer(parseResult.data);
-      opts.onRender?.(renderResult);
+      opts.onSlotRender?.(renderResult);
     } else {
       if (fallbackRenderer) {
         renderResult = fallbackRenderer(parseResult.error);
@@ -82,9 +82,12 @@ export function createEntropyPipeline<
   function render<RenderType>(
     renderer?: (renderedData: L2R, parseds: L2P) => RenderType
   ): RenderType | L2R {
-    return renderer
+    const renderedData = renderer
       ? renderer(labelToRendereds, labelToParseds)
       : labelToRendereds;
+    opts.onRender?.(renderedData);
+
+    return renderedData;
   }
 
   return {
