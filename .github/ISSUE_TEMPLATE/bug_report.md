@@ -1,9 +1,9 @@
 ---
 name: "🐛 Bug Report"
 about: Report a reproducible bug or regression.
-title: ''
+title: '[BUG] (short description)'
 labels: bug
-assignees: ''
+assignees: 'dero'
 
 ---
 
@@ -25,4 +25,4 @@ assignees: ''
 
 - Version: <!-- Version set in package.json -->
 - Platform: <!-- Win/Mac/Linux -->
-- Node.js Version: <!-- Output of running `node -v` -->
+- Browser: <!-- Chrome/Firefox/Safari -->
